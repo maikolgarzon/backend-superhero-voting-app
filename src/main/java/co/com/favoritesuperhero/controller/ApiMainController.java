@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,18 +19,19 @@ import co.com.favoritesuperhero.entities.Suggestion;
 import co.com.favoritesuperhero.entities.HeroVote;
 import co.com.favoritesuperhero.repository.ISuggestionRepository;
 import co.com.favoritesuperhero.repository.IHeroVoteRepository;
-import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/api/hero")
-@AllArgsConstructor
 @CrossOrigin("*")
 public class ApiMainController {
 
+	@Autowired
 	private IHeroApiClient heroClient;
 
+	@Autowired
 	private IHeroVoteRepository voteRepository;
 	
+	@Autowired
 	private ISuggestionRepository suggestionRepository;
 
 	@GetMapping("/list")
